@@ -17,12 +17,12 @@ Example
 ```python
 from persian_gender_detection import get_gender
 
-// Detect gender
-get_gender('  عــــلی  ');         // MALE
-get_gender('نرگـــ😉ــس');         // FEMALE
-get_gender('حســ😎ــن');          // MALE
-get_gender('۱۲۳۹۹۳محمدعلی123');  // MALE
-get_gender('۱۲۳مهناز۱۲۳');       // FEMALE
+# Detect gender
+get_gender('  عــــلی  ')         # MALE
+get_gender('نرگـــ😉ــس')         # FEMALE
+get_gender('حســ😎ــن')           # MALE
+get_gender('۱۲۳۹۹۳محمدعلی123')    # MALE
+get_gender('۱۲۳مهناز۱۲۳')         # FEMALE
 ```
 
 Issues
