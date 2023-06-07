@@ -4,10 +4,10 @@ import os
 
 base_path = os.path.dirname(__file__)
 
-with open(base_path+'/gender/male.json') as male_file:
+with open(base_path+'/gender/male.json', encoding="utf8") as male_file:
     male = json.loads(male_file.read())
 
-with open(base_path+'/gender/female.json') as female_file:
+with open(base_path+'/gender/female.json', encoding="utf8") as female_file:
     female = json.loads(female_file.read())
 
 
