@@ -15,7 +15,7 @@ $ pip install persian-gender-detection
 Example
 ------
 ```python
-import persian_gender_detection import get_gender
+from persian_gender_detection import get_gender
 
 // Detect gender
 get_gender('  عــــلی  ');         // MALE
