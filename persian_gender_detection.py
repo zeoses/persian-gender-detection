@@ -15,9 +15,17 @@ def clean_name(name:str) -> str:
     pattern = '^\s+|^0-9+|^۰-۹|[^(آ-ی)(a-z)]+'
 
     replacements = {
-        'ی': 'ی', 'ك': 'ک', 'ـ': '',
-        '\َ': '', '\ِ': '', '\ُ': '',
-        '\ً': '', '\ٍ': '', '\ٌ': '', '\ْ': '',
+        "ي": "ی",
+        "ك": "ک",
+        "ـ": "",
+        "\َ": "",
+        "\ِ": "",
+        "\ُ": "",
+        "\ً": "",
+        "\ٍ": "",
+        "\ٌ": "",
+        "\ْ": "",
+        "\ْ": ""
     }
 
     name = name.lower()
@@ -28,9 +36,9 @@ def clean_name(name:str) -> str:
 
 def get_gender(name:str) -> str:
     name = clean_name(name)
-    if male.get(name, False):
+    if name in male:
         return 'MALE'
-    elif female.get(name, False):
+    elif name in female:
         return 'FEMALE'
     else:
         return 'UNKNOWN'
