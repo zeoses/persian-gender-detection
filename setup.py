@@ -5,7 +5,7 @@ with open('./README.md', 'r') as f:
 
 setup(
     name='persian-gender-detection',
-    version='1.0.1',
+    version='1.0.2',
     packages=['persian_gender_detection'],
     include_package_data=True,
     data_files=[('', [
@@ -14,14 +14,14 @@ setup(
         'persian_gender_detection/gender/names.csv',
     ])],
     url='https://github.com/zeoses/persian-gender-detection',
-    license='GPL-3.0',
+    license='MIT License',
     author='Mehraban',
     description='A simple python package to detect gender by Persian first name. (With more than 6K names).',
     long_description=readme,
     long_description_content_type='text/markdown',
     keywords='persian-gender-detection, farsi gender, iranian gender, name gender, persian gender detection, gender detection',
     classifiers=[
-        'License :: OSI Approved :: GPL-3.0',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: Persian',
         'Natural Language :: English',
         'Programming Language :: Python :: 3.4',

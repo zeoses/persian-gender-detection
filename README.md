@@ -37,4 +37,4 @@ Please feel free to contribute names database with your kindly pull requests.
 
 License
 ------------
-Licensed under [GPL-3.0](LICENSE)
+Licensed under [MIT License](LICENSE)
