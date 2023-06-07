@@ -2,7 +2,7 @@
 
 A simple python package to detect gender by Persian first name. (With more than 6K names)
 
-for this package i use this [repo](https://github.com/peymanslh/persian-gender-detection/) if you are use NPM that's great choice
+for this package i use this [repo](https://github.com/peymanslh/persian-gender-detection/) if you are use NPM that's great choice.
 
 Installation
 ------
