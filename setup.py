@@ -6,12 +6,12 @@ with open('./README.md', 'r') as f:
 setup(
     name='persian-gender-detection',
     version='1.0.0',
-    packages=['persian-gender-detection'],
+    packages=['persian_gender_detection'],
     include_package_data=True,
     data_files=[('', [
-        'gender/female.json',
-        'gender/male.json',
-        'gender/names.csv',
+        'persian_gender_detection/gender/female.json',
+        'persian_gender_detection/gender/male.json',
+        'persian_gender_detection/gender/names.csv',
     ])],
     url='https://github.com/zeoses/persian-gender-detection',
     license='GPL-3.0',

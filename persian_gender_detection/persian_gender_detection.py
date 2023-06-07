@@ -1,9 +1,9 @@
 import json
 import re
-from pathlib import Path
 import os
 
-base_path = str(Path(os.getcwd()))
+base_path = os.path.dirname(__file__)
+
 with open(base_path+'/gender/male.json') as male_file:
     male = json.loads(male_file.read())
 

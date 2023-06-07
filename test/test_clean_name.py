@@ -1,5 +1,5 @@
 import unittest
-from persian_gender_detection import clean_name
+from persian_gender_detection.persian_gender_detection import clean_name
 
 
 class TestCleanName(unittest.TestCase):
