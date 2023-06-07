@@ -19,7 +19,7 @@ setup(
     description='A simple python package to detect gender by Persian first name. (With more than 6K names).',
     long_description=readme,
     long_description_content_type='text/markdown',
-    keywords='persian-gender-detection, farsi gender, iranian gender, name gender',
+    keywords='persian-gender-detection, farsi gender, iranian gender, name gender, persian gender detection, gender detection',
     classifiers=[
         'License :: OSI Approved :: GPL-3.0',
         'Natural Language :: Persian',
