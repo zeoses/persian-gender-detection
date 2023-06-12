@@ -4,17 +4,6 @@ import json
 from .gender.iranianNamesDataset import names
 
 
-# base_path = os.path.dirname(__file__)
-
-# # with open(base_path+'/gender/male.json', encoding="utf8") as male_file:
-# #     male = json.loads(male_file.read())
-
-# # with open(base_path+'/gender/female.json', encoding="utf8") as female_file:
-# #     female = json.loads(female_file.read())
-
-# with open(base_path+'/gender/iranianNamesDataset.json', encoding="utf8") as male_file:
-#     names = json.loads(male_file.read())
-
 def clean_name(name:str) -> str:
     pattern = '^\s+|^0-9+|^۰-۹|[^(آ-ی)(a-z)]+'
 
