@@ -1,15 +1,19 @@
-import json
-import re
 import os
+import re
+import json
+from .gender.iranianNamesDataset import names
 
-base_path = os.path.dirname(__file__)
 
-with open(base_path+'/gender/male.json', encoding="utf8") as male_file:
-    male = json.loads(male_file.read())
+# base_path = os.path.dirname(__file__)
 
-with open(base_path+'/gender/female.json', encoding="utf8") as female_file:
-    female = json.loads(female_file.read())
+# # with open(base_path+'/gender/male.json', encoding="utf8") as male_file:
+# #     male = json.loads(male_file.read())
 
+# # with open(base_path+'/gender/female.json', encoding="utf8") as female_file:
+# #     female = json.loads(female_file.read())
+
+# with open(base_path+'/gender/iranianNamesDataset.json', encoding="utf8") as male_file:
+#     names = json.loads(male_file.read())
 
 def clean_name(name:str) -> str:
     pattern = '^\s+|^0-9+|^۰-۹|[^(آ-ی)(a-z)]+'
@@ -25,7 +29,7 @@ def clean_name(name:str) -> str:
         "\ٍ": "",
         "\ٌ": "",
         "\ْ": "",
-        "\ْ": ""
+        "\ْ": "",
     }
 
     name = name.lower()
@@ -36,11 +40,15 @@ def clean_name(name:str) -> str:
 
 def get_gender(name:str) -> str:
     name = clean_name(name)
-    if name in male:
-        return 'MALE'
-    elif name in female:
-        return 'FEMALE'
+    name = name.replace("آ", "ا").replace(" ", "")
+
+    if name in names:
+        return 'MALE' if names[name] == 'M' else 'FEMALE'
     else:
-        return 'UNKNOWN'
+        for i in range(max(len(name), 8), 2, -1):
+            if name[:i] in names:
+                return 'MALE' if names[name[:i]] == 'M' else 'FEMALE'
+
+    return 'UNKNOWN'
 
 
