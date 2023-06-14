@@ -15,7 +15,7 @@ class TestCleanName(unittest.TestCase):
         self.assertEqual(get_gender('احسا   ن'), 'MALE')
         self.assertEqual(get_gender('كامران'), 'MALE')
         self.assertEqual(get_gender('  پیمـــان  '), 'MALE')
-        self.assertEqual(get_gender('حســ😎ــن'), 'MALE')
+        self.assertEqual(get_gender('حســ😎ــن', True), ('MALE', 'حسن'))
         self.assertEqual(get_gender('۱۲۳۹۹۳محمدعلی123'), 'MALE')
         self.assertEqual(get_gender('<<محمد>>'), 'MALE')
 

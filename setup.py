@@ -5,7 +5,7 @@ with open('./README.md', 'r') as f:
 
 setup(
     name='persian-gender-detection',
-    version='1.2.0',
+    version='1.2.1',
     packages=['persian_gender_detection'],
     include_package_data=True,
     data_files=[('', [
