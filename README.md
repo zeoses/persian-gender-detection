@@ -32,7 +32,7 @@ get_gender('محمدنیسنممدیتیس',
 ```
 Changelog
 ------
-1.2.0
+1.2.1
 * Fixed issues in two-part names and added find_nearst_name flag to find and return the nearest name. 
 
 1.1.0  
