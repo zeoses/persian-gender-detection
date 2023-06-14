@@ -5,7 +5,8 @@ from persian_gender_detection.persian_gender_detection import get_gender
 class TestCleanName(unittest.TestCase):
 
     def test_detect_male(self):
-        self.assertEqual(get_gender('محمدمسیحا'), 'MALE')
+        self.assertEqual(get_gender('محمدمسیحا', True), ('MALE', 'محمد'))
+        self.assertEqual(get_gender('محمدنیسنممدیتیس', True), ('MALE', 'محمد'))
         self.assertEqual(get_gender('علي'), 'MALE')
         self.assertEqual(get_gender('مسیحا'), 'MALE')
         self.assertEqual(get_gender('سعید     '), 'MALE')
@@ -22,12 +23,12 @@ class TestCleanName(unittest.TestCase):
         self.assertEqual(get_gender('فاطمه'), 'FEMALE')
         self.assertEqual(get_gender('آذر     '), 'FEMALE')
         self.assertEqual(get_gender('الـــناز'), 'FEMALE')
-        self.assertEqual(get_gender('فاطمه زهرا'), 'FEMALE')
+        self.assertEqual(get_gender('فاطمه زهرا', True), ('FEMALE', "فاطمه"))
         self.assertEqual(get_gender('یلـــ❤️ــدا'), 'FEMALE')
         self.assertEqual(get_gender('  مریم  '), 'FEMALE')
         self.assertEqual(get_gender('صغری'), 'FEMALE')
         self.assertEqual(get_gender('حانیه'), 'FEMALE')
-        self.assertEqual(get_gender('جانان'), 'FEMALE')
+        self.assertEqual(get_gender('جانان', True), ('FEMALE', 'جانا'))
         self.assertEqual(get_gender('۱۲۳مهناز۱۲۳'), 'FEMALE')
         self.assertEqual(get_gender('فاطی'), 'FEMALE')
 

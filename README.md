@@ -23,7 +23,25 @@ get_gender('نرگـــ😉ــس')         # FEMALE
 get_gender('حســ😎ــن')           # MALE
 get_gender('۱۲۳۹۹۳محمدعلی123')    # MALE
 get_gender('۱۲۳مهناز۱۲۳')         # FEMALE
+get_gender('فاطمه زهرا')          # UNKNOWN
+get_gender('فاطمه زهرا', 
+          find_nearest_name=True) # (FEMALE, 'فاطمه')
+get_gender('محمدنیسنممدیتیس', 
+          find_nearest_name=True) # ('MALE', 'محمد')
+
 ```
+Changelog
+------
+1.2.0
+* Fixed issues in two-part names and added find_nearst_name flag to find and return the nearest name. 
+
+1.1.0  
+* Increasing the dataset of names from 6k to 19k
+* convert names dataset from JSON to Python dictionary
+* If a name does not exist in the dataset, it finds the gender in two-part names using the first part.  
+
+1.0.5
+* First version with 6k name dataset
 
 Issues
 ------
