@@ -30,9 +30,9 @@ class TestCleanName(unittest.TestCase):
         self.assertEqual(get_gender("جانان", True), ("FEMALE", "جانا"))
         self.assertEqual(get_gender("۱۲۳مهناز۱۲۳"), "FEMALE")
         self.assertEqual(get_gender("فاطی"), "FEMALE")
+        self.assertEqual(get_gender("(فاطمه)"), "FEMALE")
 
     def test_detect_unkown(self):
-        self.assertEqual(get_gender("(فاطمه)"), "UNKNOWN")
         self.assertEqual(get_gender("fateme"), "UNKNOWN")
         self.assertEqual(get_gender("Ali"), "UNKNOWN")
 
