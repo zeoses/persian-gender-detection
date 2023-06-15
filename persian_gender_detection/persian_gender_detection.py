@@ -1,4 +1,8 @@
+from typing import Literal
+
 from .gender.iranianNamesDataset import names
+
+GENDER = Literal["MALE", "FEMALE", "UNKNOWN"]
 
 
 def clean_name(name: str) -> str:
@@ -16,7 +20,7 @@ def clean_name(name: str) -> str:
     return "".join([char for char in name if char in persian_characters])
 
 
-def get_gender(name: str) -> str:
+def get_gender(name: str) -> GENDER:
     name = clean_name(name)
     if name in names:
         return "MALE" if names[name] == "M" else "FEMALE"
@@ -24,7 +28,7 @@ def get_gender(name: str) -> str:
     return "UNKNOWN"
 
 
-def get_gender_nearest(name: str) -> tuple[str, str | None]:
+def get_gender_nearest(name: str) -> tuple[GENDER, str | None]:
     name = clean_name(name)
     if name in names:
         return ("MALE", name) if names[name] == "M" else ("FEMALE", name)

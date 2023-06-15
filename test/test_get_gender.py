@@ -1,4 +1,5 @@
 import unittest
+
 from persian_gender_detection.persian_gender_detection import (
     get_gender,
     get_gender_nearest,
