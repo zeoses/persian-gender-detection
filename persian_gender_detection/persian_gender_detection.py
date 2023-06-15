@@ -5,31 +5,22 @@ from .gender.iranianNamesDataset import names
 
 
 def clean_name(name: str) -> str:
-    pattern = "^\s+|^0-9+|^۰-۹|[^(آ-ی)(a-z)]+"
+    persian_characters = set("آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی")
 
-    replacements = {
-        "ي": "ی",
-        "ك": "ک",
-        "ـ": "",
-        "\َ": "",
-        "\ِ": "",
-        "\ُ": "",
-        "\ً": "",
-        "\ٍ": "",
-        "\ٌ": "",
-        "\ْ": "",
-        "\ْ": "",
-    }
+    replacements = str.maketrans(
+        {
+            "ي": "ی",
+            "ك": "ک",
+            "آ": "ا",
+        }
+    )
 
-    name = name.lower()
-    name = "".join([replacements.get(c, c) for c in name])
-    name = re.sub(pattern, "", name)
-    return name
+    name = name.lower().translate(replacements)
+    return "".join([char for char in name if char in persian_characters])
 
 
 def get_gender(name: str, find_nearest_name: bool = False) -> str:
     name = clean_name(name)
-    name = name.replace("آ", "ا").replace(" ", "")
 
     if name in names:
         if find_nearest_name:
