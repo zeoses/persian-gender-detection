@@ -1,6 +1,3 @@
-import os
-import re
-import json
 from .gender.iranianNamesDataset import names
 
 

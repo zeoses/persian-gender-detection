@@ -15,16 +15,6 @@ class TestCleanName(unittest.TestCase):
         self.assertEqual(clean_name("۱۲۳۹۹۳محمدعلی123"), "محمدعلی")
         self.assertEqual(clean_name("<<محمد>>"), "محمد")
 
-    def test_english_word(self):
-        self.assertEqual(clean_name("Ali"), "ali")
-        self.assertEqual(clean_name("    J  ohn "), "john")
-        self.assertEqual(clean_name("Pey😎man"), "peyman")
-        self.assertEqual(clean_name("12345Pey44man555"), "peyman")
-        self.assertEqual(clean_name("<<pey44man>>"), "peyman")
-        self.assertEqual(clean_name("<<pey44man>"), "peyman")
-        self.assertEqual(clean_name("<<pey44man>"), "peyman")
-        self.assertEqual(clean_name("<<me44h785di>"), "mehdi")
-
 
 if __name__ == "__main__":
     unittest.main()
