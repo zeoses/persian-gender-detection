@@ -1,6 +1,6 @@
 from typing import Literal
 
-from .gender.iranianNamesDataset import names
+from .gender.iranian_names_dataset import names
 
 GENDER = Literal["MALE", "FEMALE", "UNKNOWN"]
 
