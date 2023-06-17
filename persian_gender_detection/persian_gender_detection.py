@@ -1,46 +1,41 @@
-import os
-import re
-import json
-from .gender.iranianNamesDataset import names
+from typing import Literal
+
+from .gender.iranian_names_dataset import names
+
+GENDER = Literal["MALE", "FEMALE", "UNKNOWN"]
 
 
-def clean_name(name:str) -> str:
-    pattern = '^\s+|^0-9+|^۰-۹|[^(آ-ی)(a-z)]+'
+def clean_name(name: str) -> str:
+    persian_characters = set("آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی")
 
-    replacements = {
-        "ي": "ی",
-        "ك": "ک",
-        "ـ": "",
-        "\َ": "",
-        "\ِ": "",
-        "\ُ": "",
-        "\ً": "",
-        "\ٍ": "",
-        "\ٌ": "",
-        "\ْ": "",
-        "\ْ": "",
-    }
+    replacements = str.maketrans(
+        {
+            "ي": "ی",
+            "ك": "ک",
+            "آ": "ا",
+        }
+    )
 
-    name = name.lower()
-    name = "".join([replacements.get(c, c) for c in name])
-    name = re.sub(pattern, '',name)
-    return name
+    name = name.lower().translate(replacements)
+    return "".join([char for char in name if char in persian_characters])
 
 
-def get_gender(name:str, find_nearest_name:bool=False) -> str:
+def get_gender(name: str) -> GENDER:
     name = clean_name(name)
-    name = name.replace("آ", "ا").replace(" ", "")
-
     if name in names:
-        if find_nearest_name:
-            return ('MALE', name) if names[name] == 'M' else ('FEMALE', name)
-        return 'MALE' if names[name] == 'M' else 'FEMALE'
-    
-    elif find_nearest_name:
-        for i in range(max(len(name), 8), 2, -1):
-            if name[:i] in names:
-                return ('MALE', name[:i]) if names[name[:i]] == 'M' else ('FEMALE', name[:i])
+        return "MALE" if names[name] == "M" else "FEMALE"
 
-    return 'UNKNOWN'
+    return "UNKNOWN"
 
 
+def get_gender_nearest(name: str) -> tuple[GENDER, str | None]:
+    name = clean_name(name)
+    if name in names:
+        return ("MALE", name) if names[name] == "M" else ("FEMALE", name)
+
+    for i in range(max(len(name), 8), 2, -1):
+        part = name[:i]
+        if part in names:
+            return ("MALE", part) if names[part] == "M" else ("FEMALE", part)
+
+    return "UNKNOWN", None

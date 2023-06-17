@@ -15,19 +15,17 @@ $ pip install persian-gender-detection
 Example
 ------
 ```python
-from persian_gender_detection import get_gender
+from persian_gender_detection import get_gender, get_gender_nearest
 
 # Detect gender
-get_gender('  عــــلی  ')         # MALE
-get_gender('نرگـــ😉ــس')         # FEMALE
-get_gender('حســ😎ــن')           # MALE
-get_gender('۱۲۳۹۹۳محمدعلی123')    # MALE
-get_gender('۱۲۳مهناز۱۲۳')         # FEMALE
-get_gender('فاطمه زهرا')          # UNKNOWN
-get_gender('فاطمه زهرا', 
-          find_nearest_name=True) # (FEMALE, 'فاطمه')
-get_gender('محمدنیسنممدیتیس', 
-          find_nearest_name=True) # ('MALE', 'محمد')
+get_gender('  عــــلی  ')             # MALE
+get_gender('نرگـــ😉ــس')             # FEMALE
+get_gender('حســ😎ــن')               # MALE
+get_gender('۱۲۳۹۹۳محمدعلی123')        # MALE
+get_gender('۱۲۳مهناز۱۲۳')             # FEMALE
+get_gender('فاطمه زهرا')              # UNKNOWN
+get_gender_nearest('فاطمه زهرا')      # (FEMALE, 'فاطمه')
+get_gender_nearest('محمدنیسنممدیتیس') # ('MALE', 'محمد')
 
 ```
 Changelog
