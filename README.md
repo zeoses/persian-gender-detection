@@ -46,7 +46,7 @@ get_gender_nearest("جانان")           # ("FEMALE", "جانا")
 Changelog
 ------ 
 1.4.0  
-first, thanks to [amirsoroush](https://github.com/amirsoroush) for the changes and improvement code, in this (PR)[https://github.com/zeoses/persian-gender-detection/pull/2] you can see all of the changes. But in summary, the following has been done:
+first, thanks to [amirsoroush](https://github.com/amirsoroush) for the changes and improvement code, in this [PR](https://github.com/zeoses/persian-gender-detection/pull/2) you can see all of the changes. But in summary, the following has been done:
 * improve and simplify code and formatting, remove unused packages.
 * Adding a new function for finding the nearest name and removing the find_nearst_name flag for better output.
 
